@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme version="1.0" name="Light">
+    <!--
+    > Theme : chen-light                            <
+    > Author: dovecyj@163.com                       <
+    > GitHub: https://github.com/DOVECYJ/chen-light <
+    -->
+    <!--普通文本颜色和整体背景色-->
+    <style name="Text" foreground="#464547" background="#F2F2F2" />
+    <!--行号前景色和背景色-->
+    <style name="Extra" foreground="#2585a6" background="#F2F2F2" />
+    <!--选中文本背景色-->
+    <style name="Selection" background="#918597" />
+    <!--光标所在行背景色-->
+    <style name="CurrentLine" background="#d3d7d4" />
+    <!--匹配括号背景色-->
+    <style name="MatchBrackets" background="#ffce7b" />
+    <!--缩进指示线颜色-->
+    <style name="IndentLine" foreground="#d3d7d4" />
+    <!--空白字符颜色-->
+    <style name="VisualWhitespace" foreground="#d3d7d4" />
+    <!--关键字颜色 italic="true"-->
+    <style name="Keyword" foreground="#c77eb5" bold="true" />
+    <!--数据类型颜色，包括内置类型和自定义类型-->
+    <style name="DataType" foreground="#45b97c" />
+    <!--所有数字-->
+    <style name="Decimal" foreground="#d93a49" />
+    <!--N进制？没看到效果-->
+    <style name="BaseN" foreground="#f58220" />
+    <!--浮点数？没看到效果-->
+    <style name="Float" foreground="#f58220" />
+    <!--字符？没看到效果-->
+    <style name="Char" foreground="#f15a22" />
+    <!--字符串-->
+    <style name="String" foreground="#f15a22" />
+    <!--注释-->
+    <style name="Comment" foreground="#f2f2f2" background="#a1a3a6" />
+    <!--警告-->
+    <style name="Alert" foreground="#fcaf17" />
+    <!--错误，编译输出那里的错误-->
+    <style name="Error" foreground="#d93a49" />
+    <!--函数调用的函数名-->
+    <style name="Function" foreground="#3A5FCD" />
+    <!--括号，运算符-->
+    <style name="RegionMarker" foreground="#5c7a29" />
+    <!--符号？没看到效果-->
+    <style name="Symbol" foreground="#78a355" />
+    <!--内置函数名，包括调用本包的函数-->
+    <style name="BuiltinFunc" foreground="#50b7c1" />
+    <!--nil，true，false-->
+    <style name="Predeclared" foreground="#7fb80e" bold="true" italic="true" />
+    <!--函数定义的函数名-->
+    <style name="FuncDecl" foreground="#2468a2" />
+    <!--占位符？没看到效果-->
+    <style name="Placeholder" foreground="#1d953f" />
+    <!--TODO-->
+    <style name="ToDo" foreground="#3e4145" background="#a1a3a6" bold="true" />
+</style-scheme>
