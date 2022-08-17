@@ -7,18 +7,16 @@
 /* 【设置字体】 */
 /* QWidget,QFrame和QAbstractScrollArea会改变代码编辑区的字体，*/
 /* 因此设置字体是需要把他们排除 */
-QProgressBar,QStatusBar,QTableView,QTableWidget,QColumnView,
-QToolTip,QGroupBox,QToolBar,QFileDialog,QStackedWidget,QTextBrowser,
-QLabel,QPushButton,QRadioButton,QCheckBox,QStatusBar,QToolButton,
-QComboBox,QTabBar,QTabWidget,QLineEdit,QTextEdit,QSpinBox,
-QDoubleSpinBox,QListView,QListWidget,QMessageBox,QWebView,
-QTreeView,QHeaderView,QMenu,QMenuBar,QMainWindow,QDialog {
+QProgressBar,QStatusBar,QTableView,QTableWidget,QColumnView,QToolTip,QGroupBox,
+QToolBar,QFileDialog,QStackedWidget,QTextBrowser,QLabel,QPushButton,QRadioButton,
+QCheckBox,QToolButton,QComboBox,QTabBar,QTabWidget,QLineEdit,QTextEdit,QSpinBox,
+QDoubleSpinBox,QListView,QListWidget,QMessageBox,QWebView,QTreeView,QHeaderView,
+QMenu,QMenuBar,QMainWindow,QDialog {
     font: 11px "Microsoft Sans Serif"; /* 字体 */
 }
 
 /* 【设置背景和前景色】 */
-QAbstractScrollArea,QHeaderView,QMenuBar,
-QMainWindow,QToolButton,QToolBar,QFrame,
+QAbstractScrollArea,QHeaderView,QMenuBar,QMainWindow,QToolButton,QToolBar,QFrame,
 QWidget {
     background-color: #F2F2F2; /* 背景色 */
     border-color: transparent; /* 透明边框 */
@@ -97,7 +95,8 @@ QTabBar::tab {
 /* 标签控件：鼠标悬停 */
 QTabBar::tab:hover {
     /* 渐变背景 */
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #B9D3EE, stop: 1 #d3d7d4);
+    /* background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #B9D3EE, stop: 1 #d3d7d4); */
+    background-color: #B9D3EE;
 }
 /* 标签控件：选中 */
 QTabBar::tab:selected {
@@ -141,10 +140,14 @@ QTabBar QToolButton::left-arrow {
     image: url(leftarrow.png);
 } 
 */
+/* 标签控件：标签 */
+QTabWidget::tab-bar {
+    subcontrol-position: center; /* 居中 */
+}
 
 /* 【工具栏】 */
 QToolBar {
-    spacing: 3px; /* 工具按钮间距 */
+    spacing: 1px; /* 工具按钮间距 */
     border: none;
     background-color: transparent;
 }
@@ -158,27 +161,81 @@ QToolBar:handle {    /* 拖动的那个地方 */
 /* 【工具按钮】 */
 QToolButton {
     background: transparent;
-    border: none;
-    margin: 1px 2px 1px 2px; /* 上左下右 */
-    color: #74787c;          /* 文字颜色 */
+    border: none;   /* 无边框 */
+    margin: 1px;    /* 边距 */
+    color: #74787c; /* 文字颜色 */
+    height: 11px;   /* 按钮高度 */
+    border-radius: 7px;
 }
 /* 工具按钮：鼠标悬停 */
 QToolButton:hover {
     color: #00BFFF;
+    border: 1px solid transparent; /* 加透明边框，实现图标缩小的效果 */
 }
 /* 工具按钮：鼠标按下 */
 QToolButton:pressed {
     background-color: none;
-    border: none;
+    /* border: none; */
 }
 /* 工具按钮：选中 */
 QToolButton:checked {
-    background-color: #C6E2FF;
+    background-color: #d3d7d4;
+    /* background-color: #C6E2FF; */
+    /* background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #C6E2FF, stop: 0.8 transparent, stop: 1 transparent); */
+    color: #464547;
+    /* font-weight: bold; */
     border: none;
-    border-radius: 8px;
+}
+/* 下拉工具按钮 */
+QToolButton[popupMode="1"] {
+    background-color: transparent;
+    padding-right: 8px;
+}
+/* 下拉工具按钮：鼠标悬停 */
+/* QToolButton[popupMode="1"]:hover {
+    border: none;
+} */
+/* 下拉工具按钮 */
+QToolButton[popupMode="2"] {
+    background-color: transparent;
+    padding-right: 0px;
+}
+/* 下拉工具按钮：鼠标悬停 */
+/* QToolButton[popupMode="2"]:hover {
+    border: 1px solid transparent;
+} */
+/* 工具按钮：下拉按钮 */
+QToolButton::menu-button {
+    background-color: transparent;
+    border: none;
+}
+/* 工具按钮：下拉箭头 */
+/* QToolButton::menu-arrow {
+    background-color: #90d7ec;
+    border: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+} */
+/* 工具按钮：下拉箭头：鼠标悬停 */
+/* QToolButton::menu-arrow:hover {
+    border: 1px solid transparent;
+} */
+/* 工具按钮：下拉箭头：展开 */
+QToolButton::menu-arrow:open {
+    /* background-color: #f15b6c; */
+    top: 1px;
+}
+/* 工具按钮：下拉箭头 */
+QToolButton::menu-indicator {
+    width: 0;
+    height: 0;
 }
 
 /* 【菜单栏】 */
+QMenuBar {
+    height: 0; /* 去掉菜单栏 */
+}
 /* 菜单栏：菜单项：禁用 */
 QMenuBar::item:disabled {
     color: #8a8c8e;
@@ -220,9 +277,13 @@ QLineEdit {
     border-left: none;
     border-right: none;
     border-top: none;
-    padding: 0 8px; /* 填充 */
-    color: #2468a2; /* 文字颜色 */
+    padding: 0 4px; /* 边距 */
+    /* color: #464547; */ /* 文字颜色 */
     /* selection-background-color: #74787c; */ /* 选中背景色 */
+}
+/* 输入框：编辑 */
+QLineEdit:focus {
+    border-bottom: 1px solid #7bbfea;
 }
 
 /* 【文本框】 */
@@ -248,9 +309,9 @@ QScrollBar::handle:vertical {
 /* 滚动条：滑块：鼠标悬停 */
 QScrollBar::handle:horizontal:hover,
 QScrollBar::handle:vertical:hover {
-    background-color: rgba(135, 206, 250, 0.8);
-    border: none;       /* 去掉边框实现一个放大效果 */
-    border-radius: 3px; /* 设置圆角，不要超过宽度的一半 */
+    background-color: rgba(135, 206, 250, 0.7);
+    border: 1px solid #F2F2F2; /* 减小边框实现一个放大效果 */
+    border-radius: 3px;        /* 设置圆角，不要超过宽度的一半 */
 }
 /* 垂直滚动条：下面的翻页按钮 */
 QScrollBar::add-line:vertical {
@@ -413,9 +474,47 @@ QToolTip {
     opacity: 160; /* 透明度 */
 }
 
+/* 【树形控件】 */
+QTreeView::item:hover {
+    color: #00BFFF;
+    background-color: transparent;
+    border: none;
+}
+/* 树形控件：选项：选中 */
+/* QTreeView::item:selected {
+    background-color: #d3d7d4;
+    border-radius: 10px;
+} */
+/* 树形控件：选项：选中：激活 */
+QTreeView::item:selected:active{
+    color: #ea66a6;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+}
+/* 树形控件：选项：选中：非激活 */
+QTreeView::item:selected:!active {
+    background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 transparent, stop: 0.5 #d3d7d4, stop: 1 transparent);
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+/* 【状态栏】 */
+QStatusBar QLabel {
+    border: none;
+    color: #74787c;
+    padding-right: 6px;
+}
+/* 状态栏：鼠标悬停 */
+QStatusBar QLabel:hover {
+    color: #464547;
+    font-weight: bold;
+}
+
 /* 【去掉边框】 */
-QHeaderView::section,QTableView QTableCornerButton::section,
-QWidget::pane,QTreeView,QListView,QLabel,QStatusBar,QSizeGrip,
+QHeaderView::section,QTableView QTableCornerButton::section,QTabWidget::pane,
+QStatusBar::item,QWidget::pane,QTreeView,QListView,QLabel,QStatusBar,QSizeGrip,
 QAbstractScrollArea {
     background: transparent;
     border: none;
