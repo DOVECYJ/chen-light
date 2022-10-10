@@ -431,7 +431,7 @@ QSpinBox::down-arrow {
 
 /* 【列表控件】 */
 QListView::item {
-    background: transparent;
+    background: #F2F2F2;
     border: none;
     color: #74787c;
 }
@@ -516,6 +516,12 @@ QStatusBar QLabel:hover {
 QHeaderView::section,QTableView QTableCornerButton::section,QTabWidget::pane,
 QStatusBar::item,QWidget::pane,QTreeView,QListView,QLabel,QStatusBar,QSizeGrip,
 QAbstractScrollArea {
-    background: transparent;
+    /* background: transparent; */
     border: none;
+}
+
+/* 下拉框和智能提示的列表区域 */
+QAbstractItemView {
+    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #426ab3, stop: 1 transparent); /* 选中项背景色 */
+    /* selection-color: #00BFFF; /* 选中项文字颜色 */
 }
