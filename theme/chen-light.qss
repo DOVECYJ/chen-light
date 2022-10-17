@@ -23,8 +23,6 @@ QWidget {
     color: #464547;            /* 文字颜色 */
 }
 
-
-
 /* 【按钮】 */
 QPushButton {
     background-color: #e7e7e7; /* 背景色 */
@@ -97,6 +95,7 @@ QTabBar::tab:hover {
     /* 渐变背景 */
     /* background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #B9D3EE, stop: 1 #d3d7d4); */
     background-color: #B9D3EE;
+    color: #464547;
 }
 /* 标签控件：选中 */
 QTabBar::tab:selected {
@@ -107,13 +106,25 @@ QTabBar::tab:selected {
 }
 /* 标签控件：关闭按钮 */
 QTabBar::close-button {
-    background-color: #f58f98;      /* 背景色 */
-    border: 10px solid transparent; /* 加粗变量让显示区域缩小 */
+    background-color: #B5B5B5;      /* 背景色 */
+    border: 10px solid transparent; /* 加粗边框让显示区域缩小 */
     border-radius: 8px;             /* 设置圆角 */
 }
-/* 标签控件：关闭按钮：鼠标悬停 */
-QTabBar::close-button:hover {
+/* 标签控件：关闭按钮：选中 */
+QTabBar::close-button:selected {
+    background-color: #FA8072;      /* 背景色 */
+    border: 10px solid transparent; /* 加粗边框让显示区域缩小 */
+    border-radius: 8px;
+}
+/* 标签控件：关闭按钮：鼠标悬停：活动标签 */
+QTabBar::close-button:hover:selected {
     background-color: #f15b6c;
+    border: 8px solid transparent; /* 将边框变细实现按钮放大效果 */
+    border-radius: 8px;
+}
+/* 标签控件：关闭按钮：鼠标悬停：非活动标签 */
+QTabBar::close-button:hover:!selected {
+    background-color: #74787c;
     border: 8px solid transparent; /* 将边框变细实现按钮放大效果 */
     border-radius: 8px;
 }
