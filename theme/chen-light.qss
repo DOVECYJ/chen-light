@@ -31,15 +31,19 @@ QPushButton {
     padding: 1px 4px 1px 4px;  /* 填充：上右下左 */
     min-width: 50px;           /* 最小宽度 */
     min-height: 16px;          /* 最小高度 */
+    margin: 2px 0 0 0;         /* 下移 */
 }
 /* 按钮：鼠标悬停 */
 QPushButton:hover {
+    background-color: #d0d0d0;
     color: #00BFFF;
+    margin: 0 0 2px 0; /* 上移 */
 }
 /* 按钮：按下 */
 QPushButton:pressed {
     background-color: #C6E2FF;
     color: #464547;
+    margin: 2px 0 0 0; /* 下移 */
 }
 /* 按钮：禁用 */
 QPushButton:disabled {
@@ -96,6 +100,7 @@ QTabBar::tab:hover {
     /* background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #B9D3EE, stop: 1 #d3d7d4); */
     background-color: #B9D3EE;
     color: #464547;
+    padding-top: 1px; /* 文字上移 */
 }
 /* 标签控件：选中 */
 QTabBar::tab:selected {
@@ -172,30 +177,34 @@ QToolBar:handle {    /* 拖动的那个地方 */
 /* 【工具按钮】 */
 QToolButton {
     background: transparent;
-    border: none;   /* 无边框 */
+    border: 2px solid transparent; /* 透明边框 */
     margin: 1px;    /* 边距 */
     color: #74787c; /* 文字颜色 */
-    height: 11px;   /* 按钮高度 */
-    border-radius: 7px;
+    height: 10px;   /* 按钮高度 */
+    border-radius: 6px; /* 圆角 */
+    margin: 2px 0 0 0;  /* 下移 */
 }
 /* 工具按钮：鼠标悬停 */
 QToolButton:hover {
     color: #00BFFF;
-    border: 1px solid transparent; /* 加透明边框，实现图标缩小的效果 */
+    /*border: none;    去掉边框，实现放大效果 */
+    margin: 0 0 2px 0; /* 上移 */
 }
 /* 工具按钮：鼠标按下 */
 QToolButton:pressed {
     background-color: none;
     /* border: none; */
+    margin: 2px 0 0 0;  /* 下移 */
 }
 /* 工具按钮：选中 */
 QToolButton:checked {
-    background-color: #d3d7d4;
+    /* background-color: #d3d7d4; */
     /* background-color: #C6E2FF; */
-    /* background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #C6E2FF, stop: 0.8 transparent, stop: 1 transparent); */
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 transparent, stop: 0.5 #94d6da, stop: 1 transparent);
     color: #464547;
     /* font-weight: bold; */
-    border: none;
+    /* border: none; */
+    margin: 0 0 2px 0; /* 上移 */
 }
 /* 下拉工具按钮 */
 QToolButton[popupMode="1"] {
@@ -526,7 +535,7 @@ QStatusBar QLabel:hover {
 /* 【去掉边框】 */
 QHeaderView::section,QTableView QTableCornerButton::section,QTabWidget::pane,
 QStatusBar::item,QWidget::pane,QTreeView,QListView,QLabel,QStatusBar,QSizeGrip,
-QAbstractScrollArea {
+QAbstractScrollArea,QAbstractItemView {
     /* background: transparent; */
     border: none;
 }
